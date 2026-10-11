@@ -1,0 +1,17 @@
+- prendre un patch random de l'image de départ 
+- le mettre en haut a guache
+- pour la prochaine position : 
+    - décaler de la taille du patch moins celle de l'overlap
+    - créer un patch avec la zone d'overlap et 0 si ca ne fait pas partie de l'overlap
+    - chercher un patch de manière random qui ressemble (somme des différences au carré minimale pour n distances) 
+        - get(n) random patch
+        - calculer leur somme d'erreur min
+        - prendre le min 
+    - résoudre l'overlap avec une fonction R
+        - on prend en entrée les windows (sans les 0, juste les zones d'overlap avec carré de l'erreur)
+        - on trouve les deux chemins 
+            - pour chaque ligne pour le vertical je trouve le chemin et je met les coordonnées en x du chemin trouvé dans l un tableau à l'emplacement de sa coordonnée y  
+        - on construit le resultat final 
+            - si > à sa ligne && > à sa colonne on met un 2 sinon si on est dans le chemin on met un 0 et sinon un 1
+    - creer le patch final a partir de la resolution de l'overlap et de l'image et le patch
+    - mettre le patch
